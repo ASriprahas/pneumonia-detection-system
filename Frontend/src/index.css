@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+:root,
+[data-theme="emerald"] {
+  --bg-main: #050908;
+  --bg-surface: #0b1311;
+  --bg-card: rgba(14, 24, 21, 0.86);
+  --bg-input: #070d0b;
+  --border-card: rgba(16, 185, 129, 0.22);
+  --accent: #10b981;
+  --accent-hover: #059669;
+  --accent-soft: rgba(16, 185, 129, 0.14);
+  --accent-glow: rgba(16, 185, 129, 0.35);
+  --btn-text: #03150e;
+  --text-main: #ecfdf5;
+  --text-muted: #9ca3af;
+}
+
+[data-theme="amber"] {
+  --bg-main: #0c0a09;
+  --bg-surface: #161311;
+  --bg-card: rgba(28, 25, 23, 0.88);
+  --bg-input: #0f0d0c;
+  --border-card: rgba(245, 158, 11, 0.25);
+  --accent: #f59e0b;
+  --accent-hover: #d97706;
+  --accent-soft: rgba(245, 158, 11, 0.14);
+  --accent-glow: rgba(245, 158, 11, 0.35);
+  --btn-text: #140d02;
+  --text-main: #fafaf9;
+  --text-muted: #a8a29e;
+}
+
+[data-theme="ivory"] {
+  --bg-main: #faf9f6;
+  --bg-surface: #f2f4f2;
+  --bg-card: #ffffff;
+  --bg-input: #f8faf9;
+  --border-card: #d6dfd9;
+  --accent: #059669;
+  --accent-hover: #047857;
+  --accent-soft: rgba(5, 150, 105, 0.12);
+  --accent-glow: rgba(5, 150, 105, 0.22);
+  --btn-text: #ffffff;
+  --text-main: #18181b;
+  --text-muted: #52525b;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.theme-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  backdrop-filter: blur(14px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease,
+              background-color 0.35s ease;
+}
+
+.theme-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 12px 32px -12px var(--accent-glow);
+}
+
+.theme-surface {
+  background-color: var(--bg-surface);
+  border-color: var(--border-card);
+}
+
+.theme-input {
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-card);
+  color: var(--text-main);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: var(--btn-text);
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 6px 20px -4px var(--accent-glow);
+}
+
+.btn-accent:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px -2px var(--accent-glow);
+}
+
+.btn-accent:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scanBeam {
+  0% {
+    top: 4%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: 96%;
+    opacity: 0;
+  }
+}
+
+.xray-scanning::after {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--accent), #ffffff, var(--accent), transparent);
+  box-shadow: 0 0 18px 3px var(--accent);
+  animation: scanBeam 1.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseRing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulseRing 2.6s ease-in-out infinite;
+}

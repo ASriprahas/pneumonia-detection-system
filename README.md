@@ -185,9 +185,21 @@ This project is developed strictly for **academic, research, and educational pur
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Authors
 
 **Sri Prahas Annambhotla**  
+**Shashank Kumar** 
+**Jeevesh** 
+**Pragna Reddy** 
+---
+
+## 👥 Team / Contributors
+
+- **Sri Prahas Annambhotla** — Full-Stack Architecture, Spring Boot Backend & ML Integration
+- **T. Shashank Kumar** — Project Contributor
+- **S. Jeevesh** — Project Contributor
+- **M. Pragna Reddy** — Project Contributor
+
 B.Tech – Computer Science and Business Systems  
 VIT-AP University  
 
